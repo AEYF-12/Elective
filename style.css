@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+/* Basic Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: center; /* Center the links */
+  align-items: center;
+  padding: 15px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for Links */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 15px; /* Space between links */
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effect */
+.navbar a:hover {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .navbar a {
+    margin: 5px 0; /* Adjust spacing for smaller screens */
+  }
+}
+
+  main {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .dashboard {
+    width: 70%;
+    padding-right: 20px;
+  }
+  
+  .dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+ /* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #3498db;
+  font-size: 16px;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.syllabus-list li, .quick-links-list li {
+  margin-bottom: 8px;
+}
+
+.syllabus-list a {
+  font-weight: 500;
+}
+
+.quick-links-list a {
+  font-weight: 400;
+}
+
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  footer a {
+    color: #ecf0f1;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  .calendar button{
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 3px;
+  }
+  attendance-tracker {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .attendance-tracker h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .attendance-overview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .attendance-bar {
+      width: 100%;
+      max-width: 300px;
+      height: 20px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .attendance-progress {
+      height: 100%;
+      background-color: #4caf50; /* Progress color */
+    }
+
+    .attendance-percentage {
+      font-size: 16px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    .attendance-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .attendance-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .attendance-tracker input[type="number"] {
+      padding: 8px;
+      width: 150px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    /* Announcements CSS */
+    .announcements {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px;
+    }
+
+    .announcements h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .announcement-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .announcement-form input[type="text"],
+    .announcement-form input[type="date"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .announcement-form button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .announcement-form button:hover {
+      background-color: #2980b9;
+    }
+
+    .announcement-card {
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+    }
+
+    .announcement-card p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .announcement-card span {
+      font-size: 14px;
+      color: #888;
+    }
+    /* Assignments CSS */
+    .assignments {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px;
+    }
+
+    .assignments h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .assignment-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .assignment-form input[type="text"],
+    .assignment-form input[type="date"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .assignment-form button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .assignment-form button:hover {
+      background-color: #2980b9;
+    }
+
+    .assignment-card {
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+    }
+
+    .assignment-card p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .assignment-card button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #27ae60;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .assignment-card button:hover {
+      background-color: #1e8449;
+    }
+    .class-overview {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px;
+    }
+    
+    .class-overview h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    
+    .class-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .class-form input[type="text"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .class-form button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .class-form button:hover {
+      background-color: #2980b9;
+    }
+    
+    .class-card {
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+    }
+    
+    .class-card h3 {
+      font-size: 18px;
+      color: #333;
+    }
+    
+    .class-card p {
+      font-size: 16px;
+      color: #555;
+    }
+    
+    .class-card button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #27ae60;
+      color: white;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background-color 0.3s;
+    }
+    
+    .class-card button:hover {
+      background-color: #1e8449;
+    }
+    .calendar {
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .calendar h2 {
+      font-size: 20px;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    
+    .calendar button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .calendar button:hover {
+      background-color: #2980b9;
+    }
+    
+    .calendar button a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    .calendar button a:hover {
+      color: white;
+    }
+    

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="response.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo"> <!-- Logo section -->
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Central_Institute_of_Technology%2C_Kokrajhar_Logo.png"
+        alt="Institution Logo">
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact Us</a>
+    </nav>    
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <section class="dashboard">
+      <h1>Welcome To The Classrooms Of CITK</h1>
+
+      <!-- Class Overview -->
+      <div class="class-overview">
+        <h2>Class Overview</h2>
+
+        <!-- Form to Add New Classes -->
+        <div class="class-form">
+          <input type="text" id="className" placeholder="Enter class name" required>
+          <input type="text" id="classSubject" placeholder="Enter subject" required>
+          <input type="text" id="classSchedule" placeholder="Enter upcoming classes (e.g., Monday, Wednesday)" required>
+          <button onclick="addClass()">Add Class</button>
+        </div>
+
+        <!-- Class Cards Display -->
+        <div id="classCards">
+          <!-- Sample Class Card -->
+          <div class="class-card">
+            <h3>Math Class</h3>
+            <p>Subject: Math</p>
+            <p>Upcoming Classes: Monday, Wednesday, Friday</p>
+            <button onclick="viewClass()">View Class</button>
+            <button onclick="viewAssignments()">View Assignments</button>
+          </div>
+        </div>
+      </div>
+      <script>
+        function addClass() {
+          const className = document.getElementById("className").value;
+          const classSubject = document.getElementById("classSubject").value;
+          const classSchedule = document.getElementById("classSchedule").value;
+          const classCards = document.getElementById("classCards");
+
+          // Check if inputs are valid
+          if (className && classSubject && classSchedule) {
+            // Create a new class card
+            const newClassCard = document.createElement("div");
+            newClassCard.className = "class-card";
+            newClassCard.innerHTML = `
+      <h3>${className}</h3>
+      <p>Subject: ${classSubject}</p>
+      <p>Upcoming Classes: ${classSchedule}</p>
+      <button onclick="viewClass('${className}')">View Class</button>
+      <button onclick="viewAssignments('${className}')">View Assignments</button>
+    `;
+
+            // Append the new card to the class cards container
+            classCards.appendChild(newClassCard);
+
+            // Clear the input fields after adding the class
+            document.getElementById("className").value = "";
+            document.getElementById("classSubject").value = "";
+            document.getElementById("classSchedule").value = "";
+          } else {
+            alert("Please fill out all fields.");
+          }
+        }
+
+        // Placeholder functions for View Class and View Assignments
+        function viewClass(className) {
+          alert(`Viewing details for ${className}`);
+        }
+
+        function viewAssignments(className) {
+          alert(`Viewing assignments for ${className}`);
+        }
+
+      </script>
+
+
+      <div class="announcements">
+        <h2>Announcements</h2>
+
+        <!-- Form to Add New Announcements -->
+        <div class="announcement-form">
+          <input type="text" id="announcementText" placeholder="Enter announcement text" required>
+          <input type="date" id="announcementDate" required>
+          <button onclick="addAnnouncement()">Add Announcement</button>
+        </div>
+
+        <!-- Announcement Cards Display -->
+        <div id="announcementCards">
+          <!-- Sample Announcement Card -->
+          <div class="announcement-card">
+            <p>Upcoming test on Friday, be prepared!</p>
+            <span>Date: 2024-11-15</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        function addAnnouncement() {
+          const announcementText = document.getElementById("announcementText").value;
+          const announcementDate = document.getElementById("announcementDate").value;
+          const announcementCards = document.getElementById("announcementCards");
+
+          // Check if inputs are valid
+          if (announcementText && announcementDate) {
+            // Create a new announcement card
+            const newAnnouncementCard = document.createElement("div");
+            newAnnouncementCard.className = "announcement-card";
+            newAnnouncementCard.innerHTML = `
+              <p>${announcementText}</p>
+              <span>Date: ${announcementDate}</span>
+            `;
+
+            // Append the new card to the announcement cards container
+            announcementCards.appendChild(newAnnouncementCard);
+
+            // Clear the input fields after adding the announcement
+            document.getElementById("announcementText").value = "";
+            document.getElementById("announcementDate").value = "";
+          } else {
+            alert("Please enter both the announcement text and date.");
+          }
+        }
+      </script>
+
+      <!-- Attendance Tracker -->
+      <div class="attendance-tracker">
+        <h2>Attendance Tracker</h2>
+        <div class="attendance-overview">
+          <div class="attendance-bar">
+            <div class="attendance-progress" id="attendanceProgress" style="width: 90%;"></div>
+          </div>
+          <p class="attendance-percentage" id="attendancePercentage">Overall Attendance: 90%</p>
+        </div>
+
+        <!-- Input for Updating Attendance -->
+        <input type="number" id="attendanceInput" placeholder="Enter new attendance %" min="0" max="100">
+        <button class="attendance-btn" onclick="updateAttendance()">Update Attendance</button>
+      </div>
+
+      <script>
+        function updateAttendance() {
+          const attendanceInput = document.getElementById("attendanceInput").value;
+          const attendanceProgress = document.getElementById("attendanceProgress");
+          const attendancePercentageText = document.getElementById("attendancePercentage");
+
+          // Ensure input is between 0 and 100
+          const attendanceValue = Math.min(100, Math.max(0, attendanceInput));
+
+          if (attendanceValue || attendanceValue === 0) { // Valid input
+            // Update progress bar width and text
+            attendanceProgress.style.width = `${attendanceValue}%`;
+            attendancePercentageText.textContent = `Overall Attendance: ${attendanceValue}%`;
+          } else {
+            alert("Please enter a valid attendance percentage between 0 and 100.");
+          }
+
+          // Clear input field
+          document.getElementById("attendanceInput").value = "";
+        }
+      </script>
+
+
+      <!-- Assignments Section -->
+      <div class="assignments">
+        <h2>Upcoming Assignments</h2>
+
+        <!-- Form to Add New Assignments -->
+        <div class="assignment-form">
+          <input type="text" id="assignmentText" placeholder="Enter assignment details" required>
+          <input type="date" id="assignmentDueDate" required>
+          <button onclick="addAssignment()">Add Assignment</button>
+        </div>
+
+        <!-- Assignment Cards Display -->
+        <div id="assignmentCards">
+          <!-- Sample Assignment Card -->
+          <div class="assignment-card">
+            <p>Math Homework - Due: 2024-11-20</p>
+            <button onclick="submitAssignment(this)">Submit Assignment</button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function addAssignment() {
+          const assignmentText = document.getElementById("assignmentText").value;
+          const assignmentDueDate = document.getElementById("assignmentDueDate").value;
+          const assignmentCards = document.getElementById("assignmentCards");
+
+          // Check if inputs are valid
+          if (assignmentText && assignmentDueDate) {
+            // Create a new assignment card
+            const newAssignmentCard = document.createElement("div");
+            newAssignmentCard.className = "assignment-card";
+            newAssignmentCard.innerHTML = `
+              <p>${assignmentText} - Due: ${assignmentDueDate}</p>
+              <button onclick="submitAssignment(this)">Submit Assignment</button>
+            `;
+
+            // Append the new card to the assignment cards container
+            assignmentCards.appendChild(newAssignmentCard);
+
+            // Clear the input fields after adding the assignment
+            document.getElementById("assignmentText").value = "";
+            document.getElementById("assignmentDueDate").value = "";
+          } else {
+            alert("Please enter both assignment details and due date.");
+          }
+        }
+
+        function submitAssignment(button) {
+          // Mark the assignment as submitted
+          button.innerText = "Assignment Submitted";
+          button.disabled = true;
+          button.style.backgroundColor = "#bdc3c7"; // Change color to gray
+        }
+      </script>
+
+
+      <!-- Time table -->
+      <div class="calendar">
+        <h2>Class Timetable</h2>
+        <p>
+          <button>
+            <a href="time table.pdf" download>Download Timetable</a>
+          </button>
+        </p>
+      </div>
+      
+    </section>
+
+    <!-- Optional Sidebar -->
+    <aside class="sidebar">
+      <h2>Syllabus for CSE</h2>
+      <ul class="syllabus-list">
+        <li><a href="Dip.pdf" download>Diploma</a></li>
+        <li><a href="B.tech.pdf" download>B.Tech</a></li>
+        <li><a href="M.tech.pdf" download>M.Tech</a></li>
+      </ul>
+    
+      <h2>Quick Links</h2>
+      <ul class="quick-links-list">
+        <li><a href="https://cit.ac.in/" target="_blank">Central Institute of Technology Kokrajhar</a></li>
+        <li><a href="https://cit.ac.in/cse-academic" target="_blank">CSE Department</a></li>
+      </ul>
+    </aside>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact Information: u22csel2092@cit.ac.in</p>
+    <a href="#terms">Terms of Service</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#faq">Help/FAQ</a>
+    <p>© CITK</p>
+  </footer>
+
+</body>
+
+</html>
